@@ -1,8 +1,9 @@
 # PhantomPass
+## ℹ️ Overview
 
-Forgot your password again? Tired of coming up with new passwords? Your weak password 20030917John is hacked again? - the solution is PhantomPass!
+##### Forgot your password again? Tired of coming up with new passwords? Your weak password 20030917John is hacked again? - the solution is PhantomPass! With PhantomPass you can summarize only one password, and it can be as weak as `1234`
 
-PhantomPass - is a powerful password generator, creating unique and reproducible passwords,based on your login and salt. Passwords are not stored, but generated on the fly, making the approach both secure and convenient.
+PhantomPass - is a powerful password generator, creating unique and reproducible passwords, based on your login and salt. Passwords are not stored, but generated on the fly, making the approach both secure and convenient.
 
 ## 📦 Requirments
 - Python 3.6+
@@ -29,22 +30,22 @@ if salt(`--salt`) is not set, it will be requested by an invisible input(using `
 
 > ⚠️ if both --print and --copy are specified, script will choose --copy.
 
-## ✨ Customization (highly recommended)
-By customizing the script you are increasing the uniqueness of your passwords, which increases their security.
+## 🔒 Customization (highly recommended)
+By customizing the script you are increasing the uniqueness of your passwords, which increases their security. The more customized the script is, the more branching paths an attacker must follow - and every wrong turn leads them further from your password. Each line of code that changes outcome adds hundreds new paths for attacker to pick the right one from.
 
-In the code I mentioned 3 `MODIFIABLE` functions, which are recommended to modify at least with several minor changes **before real scrtip use**.
+In the code I mentioned 3 `MODIFIABLE` functions, which are recommended to modify at least with several minor changes **before real script use**.
 #### `get_data()`
 defines how your data(login/mail) are combined with salt. You can append extra symbol or a separator symbol.
 #### `get_pswd(b64str)`
-defines how password is sliced from base64 hash. defaul function just slices `length` symbols from definded `index`, if there are not enough symbols you'll get the warning.
+defines how password is sliced from base64 hash. default function only slices `length` symbols from definded `index`, if there are not enough symbols you'll get the warning.
 #### `enhance(pswd)`
 modifies the final password. by default, changes first `a` to `@`. it's recommended to add custom logic of enhancing your password.
 
 ## 🛡️ Security
-PhantomPass does not store passwords, it generates them in runtime from several components. If one of components is missing - you and noone else is able to recreate your password, only if they are so fortunate to guess it. Here are required elements to recreate your password:
+PhantomPass does not store passwords, it generates them in runtime from several components. If one of components is missing - you and no one else is able to recreate your password, only if they are so fortunate to guess it. Here are required elements to recreate your password:
 - login(or any other data)
 - salt
-- correc algorithm
+- correct algorithm
 - correct index and length
 - script structure
 
